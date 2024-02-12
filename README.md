@@ -29,7 +29,7 @@ Welcome to the project repository! This repository contains six distinct project
   
 ### 6. ⌨️ Typing speed test game
 - **Description:** Our typing speed test game is designed to enhance your typing skills. You can practice typing the 500 most popular English words without any time limit, allowing you to improve your speed and accuracy at your own pace. This game is perfect for anyone looking to boost their typing efficiency and productivity.
-- **Hosted Link:**   [Link for  Typing speed test game]()
+- **Hosted Link:**   [Link for  Typing speed test game](https://chetan195.github.io/Typing-Speed-Test-Game/)
 
 ### Enjoy exploring the projects! If you have any questions or feedback, feel free to reach out.
 
