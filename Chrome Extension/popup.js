@@ -67,12 +67,12 @@ const addNewBookmark = (bookmarksElement, bookmark) => {
  **************************************************************************************************************/
 const viewBookmarks = (currentBookmarks = []) => {
   const allBookmarkedTime = document.getElementById("bookmarkedAtTime");
-  console.log(allBookmarkedTime);
+  // console.log(allBookmarkedTime);
   allBookmarkedTime.innerHTML = "";
 
   if (currentBookmarks.length > 0) {
     currentBookmarks.forEach((bookmark) => {
-      console.log(bookmark);
+      // console.log(bookmark);
       //append the old data and new data.
       addNewBookmark(allBookmarkedTime, bookmark);
     });
@@ -88,7 +88,7 @@ const viewBookmarks = (currentBookmarks = []) => {
  2.the message that send is time to start video from the instance  a action to play.
  **************************************************************************************************************/
 const onPlay = async (e) => {
-  console.log(e);
+  // console.log(e);
   const bookmarkTime = e.target.parentNode.parentNode.getAttribute("timestamp");
   const activeTab = await getActiveTabURL();
 
@@ -105,7 +105,7 @@ const onPlay = async (e) => {
  1.To delete the data it will take current tab details  and remove the hole functionality.
 **************************************************************************************************************/
 const onDelete = async (e, bookmarkTime) => {
-  console.log("delete button is clicked");
+  // console.log("delete button is clicked");
   const activeTab = await getActiveTabURL();
   const queryParameters = activeTab.url.split("?")[1];
   const urlParameters = new URLSearchParams(queryParameters);
@@ -131,7 +131,7 @@ const onDelete = async (e, bookmarkTime) => {
     chrome.storage.sync.set(
       { [currentVideo]: JSON.stringify(currentBookmarks) },
       () => {
-        console.log("Bookmark deleted and storage updated.");
+        // console.log("Bookmark deleted and storage updated.");
       }
     );
   });
@@ -187,13 +187,13 @@ document.addEventListener("DOMContentLoaded", async () => {
         ? JSON.parse(data[currentVideo])
         : [];
       viewBookmarks(currentVideoBookmarks);
-      console.log(currentVideoBookmarks);
+      // console.log(currentVideoBookmarks);
     });
   } else {
     // if conditions not match show the not a youtube video page.
     const container = document.getElementsByClassName("container")[0];
     container.innerHTML =
-      '<div class="title">This is not a YouTube video page.</div>';
+      '<div class="title-name">This is not a YouTube video page.</div>';
   }
 });
 /*************************************************************************************************************/

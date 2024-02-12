@@ -20,18 +20,19 @@ const getTime = function (t) {
 
 
 /*************************************************************************************************************
- 
+ 1.fetchBookmarks()=> A function which returns a promise.
+ 2.if the bookmark url loaded it will return object else return new array to resolve.
 **************************************************************************************************************/
 const fetchBookmarks = () => {
     return new Promise((resolve) => {
         if (chrome.runtime && !chrome.runtime.lastError) {
-            // console.log("chrome", chrome);
+            // console.log("chrome", chrome.runtime);
 
             chrome.storage.sync.get([currentVideo], (obj) => {
                 resolve(obj[currentVideo] ? JSON.parse(obj[currentVideo]) : []);
             });
         } else {
-            console.error("Extension context invalidated.");
+            // console.error("Extension context invalid.");
             resolve([]);
         }
     });
@@ -113,7 +114,7 @@ const newVideoLoaded = async () => {
             bookmarkBtn.addEventListener("click", addNewBookmarkEventHandler);
 
             return true; //! if Bookmark button added
-        } 
+        }
         else {
             return false; //! if Bookmark button already exists
         }
