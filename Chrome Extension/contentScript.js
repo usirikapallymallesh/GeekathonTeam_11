@@ -1,6 +1,8 @@
-/************************************         IIFE FUCNTION             ******************************************/
 
-
+/****************************************************************************************************************
+ youtubeLeftControls => it is for accessing the controls form the youtube.
+ youtubePlayer=> it is to add a player to it.
+****************************************************************************************************************/
 let youtubeLeftControls, youtubePlayer;
 let currentVideo = "";
 let currentVideoBookmarks = [];//by MVC it will store the data.
@@ -14,10 +16,12 @@ const getTime = function (t) {
     // console.log(date.toISOString().substr(11, 8));
     return date.toISOString().substr(11, 8);
 }
-/**************************************************************************************************/
+/**************************************************************************************************************/
 
 
-
+/*************************************************************************************************************
+ 
+**************************************************************************************************************/
 const fetchBookmarks = () => {
     return new Promise((resolve) => {
         if (chrome.runtime && !chrome.runtime.lastError) {
@@ -32,9 +36,7 @@ const fetchBookmarks = () => {
         }
     });
 };
-
-
-
+/*************************************************************************************************************/
 
 
 /**************************************************************************************************************
@@ -66,11 +68,9 @@ chrome.runtime.onMessage.addListener((object, sender, response) => {
 /*************************************************************************************************************/
 
 
-
 /**************************************************************************************************************
  1.if the button is clicked and it is new so at that time the function is called.
 **************************************************************************************************************/
-
 const newVideoLoaded = async () => {
     youtubeLeftControls = document.getElementsByClassName("ytp-left-controls")[0];
     youtubePlayer = document.getElementsByClassName("video-stream")[0];
@@ -108,32 +108,26 @@ const newVideoLoaded = async () => {
             bookmarkBtn.style.height = "30px";
             bookmarkBtn.style.marginTop = "7px";
 
-
-
-
-
-
             youtubeLeftControls.append(bookmarkBtn);
             //on click on the bookmark image it will add the content to a bookmark list.
             bookmarkBtn.addEventListener("click", addNewBookmarkEventHandler);
 
             return true; //! if Bookmark button added
-        } else {
+        } 
+        else {
             return false; //! if Bookmark button already exists
         }
     }
 
     return false; //! if Bookmark button not added
 }
-/****************************************************************************************/
+/*****************************************************************************************************************/
 
 
-
-
-/*********************************************************************************************
+/*****************************************************************************************************************
  1.on click mark button the time will be taken. 
  2.while takeing time that will in the form of seconds a new function is called to store in current formate.
-********************************************************************************************/
+*****************************************************************************************************************/
 const addNewBookmarkEventHandler = async () => {
 
     const currentTime = youtubePlayer.currentTime;
@@ -155,8 +149,4 @@ const addNewBookmarkEventHandler = async () => {
     // Send a message to the background script to show the badge
     chrome.runtime.sendMessage({ type: "SHOW_BADGE" });
 }
-/************************************************************************************************/
-// newVideoLoaded();
-
-/**************************************            IIFE END      **************************************************/
-
+/****************************************************************************************************************/

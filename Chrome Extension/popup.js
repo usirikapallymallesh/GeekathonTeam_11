@@ -1,26 +1,30 @@
-/***************************************************************************************************
+/**************************************************************************************************************
  1.destructure the object which is return it has 3 key value pairs.
  2.Returning the current tab  url .
-***************************************************************************************************/
+***************************************************************************************************************/
 const getActiveTabURL = async () => {
   //destructure the object which is returned from contentScript.js file .
   let queryOptions = { active: true, currentWindow: true };
   let tab = await chrome.tabs.query(queryOptions);
   return tab[0];
 };
-/************************************************************************************************/
+/**************************************************************************************************************/
 
 
-
-//! Get Time function
+/***************************************************************************************************************
+ Get Time function is used to get the time of the bookmark.
+***************************************************************************************************************/
 const getTime = (t) => {
   var date = new Date(0);
   date.setSeconds(t);
-
   return date.toISOString().substr(11, 8);
 };
+/***************************************************************************************************************/
+
+
 /***************************************************************************************************************
- 
+ 1.adding the bookmark using the elements. To this we are fetching the data.
+ 2.updating the dom inserting the button to play task.
 ****************************************************************************************************************/
 const addNewBookmark = (bookmarksElement, bookmark) => {
   //! here bookmark is an object which contain data from youtube (contentscript.js)
@@ -33,12 +37,14 @@ const addNewBookmark = (bookmarksElement, bookmark) => {
   bookmarkNoteElement.className = "bookmark-note";
   controlsElement.className = "bookmark-controls";
 
+  // adding a player button to move to that particular instant.
   setBookmarkAttributes("play", onPlay, controlsElement);
 
   const onDeleteClosure = (e) => {
     onDelete(e, bookmark.time);
   };
 
+  //adding the buttons delete the bookmark.
   setBookmarkAttributes("delete", onDeleteClosure, controlsElement);
 
   newBookmarkElement.id = "bookmark-" + bookmark.time.toFixed(3);
@@ -60,22 +66,21 @@ const addNewBookmark = (bookmarksElement, bookmark) => {
  5.to show the data to user.on click every time updating of array.
  **************************************************************************************************************/
 const viewBookmarks = (currentBookmarks = []) => {
-  const allTimeAtamp = document.getElementById("bookmarkAtTime");
-  console.log(allTimeAtamp);
-  // allTimeAtamp.innerHTML = "";
+  const allBookmarkedTime = document.getElementById("bookmarkedAtTime");
+  console.log(allBookmarkedTime);
+  allBookmarkedTime.innerHTML = "";
 
   if (currentBookmarks.length > 0) {
     currentBookmarks.forEach((bookmark) => {
       console.log(bookmark);
       //append the old data and new data.
-      addNewBookmark(allTimeAtamp, bookmark);
+      addNewBookmark(allBookmarkedTime, bookmark);
     });
   } else {
-    allTimeAtamp.innerHTML = '<i class="row">No bookmarks to show.</i>';
+    allBookmarkedTime.innerHTML = '<i class="row">No bookmarks to show.</i>';
   }
 };
-/******************************----------viewBookmarks function ends----------***********************************/
-
+/****************************** * * * viewBookmarks function ends * * * ***********************************/
 
 
 /***************************************************************************************************************
@@ -87,16 +92,13 @@ const onPlay = async (e) => {
   const bookmarkTime = e.target.parentNode.parentNode.getAttribute("timestamp");
   const activeTab = await getActiveTabURL();
 
-  //! *tabs.sendMessage()* The message will be received in the extension context by any listeners to the runtime.onMessage event. Listeners may then optionally return something as a response back to the sender.
-
+  // tabs.sendMessage() => The message will be received in the extension context by any listeners to the runtime.onMessage event. Listeners may then optionally return something as a response back to the sender.
   chrome.tabs.sendMessage(activeTab.id, {
     type: "PLAY",
     value: bookmarkTime,
   });
 };
 /**************************************************************************************************************/
-
-
 
 
 /**************************************************************************************************************
@@ -143,7 +145,10 @@ const onDelete = async (e, bookmarkTime) => {
 /***************************************************************************************************************/
 
 
-
+/***************************************************************************************************************
+ 1.setBookmarkAttributes() => This function will add the image like play and delete to a page.
+ 2.Return the listener like play and delete etc back with image.
+ ***************************************************************************************************************/
 const setBookmarkAttributes = (src, eventListener, controlParentElement) => {
   const controlElement = document.createElement("img");
 
@@ -154,14 +159,16 @@ const setBookmarkAttributes = (src, eventListener, controlParentElement) => {
 
   return eventListener;
 };
+/***************************************************************************************************************/
 
-/********************************************************************************************************
+
+/****************************************************************************************************************
  1.DOMContentLoaded => event fires when the HTML document has been completely parsed.
  2.getActiveTabURL() => A function which is called and stored in a activeTab variable.
  3.spliting the url into array on the bases of ? (question mark.).
  4.The URLSearchParams interface defines utility methods to work with the query string of a URL.
  5.The get syntax binds an object property to a function that will be called when that property is looked up. AND get the value from the url from ."v".
-********************************************************************************************************/
+****************************************************************************************************************/
 document.addEventListener("DOMContentLoaded", async () => {
   const activeTab = await getActiveTabURL();
   const queryParameters = activeTab.url.split("?")[1];
@@ -189,5 +196,4 @@ document.addEventListener("DOMContentLoaded", async () => {
       '<div class="title">This is not a YouTube video page.</div>';
   }
 });
-/***************************************************************************************************/
-
+/*************************************************************************************************************/

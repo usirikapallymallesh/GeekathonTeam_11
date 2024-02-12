@@ -1,15 +1,17 @@
 {
     "name": "YouTube Bookmarks",                               
-    "description": "This extension allows you to quickly create bookmarks for YouTube videos. It simplifies the process of adding bookmarks to your browser, making it more convenient to save and access your favorite videos.",          
+    "description": "This extension allows you to quickly create bookmarks for YouTube video. At different time instances.",
+    "_comment": "here we are taking two permission form the browser that is storage and tabs and it is different for all based on what extension you are building." ,         
     "permissions": ["storage", "tabs"],       
     "version": "0.0.1",               
     "host_permissions": ["https://*.youtube.com/*"],   
     "background": {
-      "service_worker": "background.js"
+      "service_worker": "background.js",
+      "_comment": "service_worker we use by the messaging system to communicate with the browser." 
     },
     "content_scripts": [
       {
-        "_comment": "braking the url and checking with youtube matches and storing the data in contentScript.js" ,
+        "_comment": " To manipulate with dom we use content_scripts. Braking the url and checking with youtube matches and storing the data in contentScript.js" ,
         "matches": ["https://*.youtube.com/*"],
         "js": ["contentScript.js"]
 

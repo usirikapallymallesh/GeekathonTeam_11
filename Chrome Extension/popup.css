@@ -1,13 +1,22 @@
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 .container {
   width: 280px;
   color: #314d3e;
-  background-color: lightcyan;
+  background-color: #f9f9f9;
 }
 
 .title {
-  font-size: 14px;
+  font-size: 16px;
   font-weight: bold;
   padding: 8px;
+  background-color: blue;
+  text-align: center;
+  color: white;
 }
 
 .textbox {
@@ -30,16 +39,20 @@
 .bookmark {
   display: flex;
   border-bottom-color: #00254d;
-  border-bottom-width: 1px;
   border-bottom-style: solid;
+  border-bottom-width: 1px;
   border-radius: 0.8rem;
-  padding: 3px;
+  padding: 5px;
   padding-bottom: 7px;
   margin-bottom: 7px;
   text-align: center;
   justify-content: center;
-  font-size: 12px;
-  font-weight: 700;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.bookmark:hover {
+  border-bottom: 1.5px solid red;
 }
 
 .bookmark-title {
@@ -51,7 +64,6 @@
   width: 18px;
   height: 18px;
   cursor: pointer;
-
 }
 
 .bookmark-controls {
