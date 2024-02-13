@@ -20,7 +20,7 @@ Welcome to the project repository! This repository contains six distinct project
 ### 4. 💳 Payment Integration
 
 - **Description:** Simple and efficient online ordering system for a pizza restaurant. It allows users to browse the menu, place orders, and seamlessly complete transactions using Razorpay payment integration.
-- **Hosted Link:** [Link for Payment Integration]()
+- **Hosted Link:** [https://mohitnegi16.github.io/razorpay001/]()
 
 
 ### 5. 📋 Trello Clone
