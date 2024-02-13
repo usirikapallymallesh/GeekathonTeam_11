@@ -1,6 +1,8 @@
 
 # Chrome Extension
 
+## Developer Name : krishna.
+
 You can use This Chrome extension to bookmark a YouTube video at specific instances. These extensions allow you to add bookmarks to videos and even add text descriptions or notes to the bookmarks. You can also navigate to the saved bookmarks and easily resume watching from the specific time instance. "Bookmarker for YouTube" also allows you to categorize and organize your bookmarks for easy access. These extensions enhance the YouTube viewing experience by providing a convenient way to save and revisit specific points in videos
 
 # How to install the Chrome extension
