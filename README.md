@@ -5,7 +5,7 @@ Welcome to the project repository! This repository contains six distinct project
 
 ### 1. 🔖 Chrome Extension
 - **Description:** The YouTube Timestamp Bookmarker is a Chrome extension that enables users to effortlessly add bookmarks to specific timestamps within YouTube videos, facilitating quick navigation to important moments. It is a handy tool built with JavaScript and provides a convenient way to mark and recall specific points of interest in videos, making it easy to revisit or share favorite moments.
-- **Hosted Link:** [Link for Chrome Extension]()
+- **Hosted Link:** [Link for Chrome Extension](https://github.com/usirikapallymallesh/Chrome_Extension)
 
 
 ### 2. 📃 Resume Templete
