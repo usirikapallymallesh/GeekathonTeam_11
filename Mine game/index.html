@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>10x10 Cells with Random Values</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<style>
+  #board {
+    display: grid;
+    grid-template-columns: repeat(10, 50px);
+    grid-template-rows: repeat(10, 50px);
+    width: 200px;
+    height: 200px;
+    border: 2px solid black;
+  }
+  #mainContainer{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .cell {
+    border: 1px solid black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+  }
+  .red {
+    background-color: red;
+  }
+  .blue{
+    background-color: blue;
+  }
+  .marked{
+  }
+  .grey{
+    background-color:rgb(168, 162, 162);
+    border: 3px solid #f7f3f3;
+  }
+  .hidden {
+    color: transparent;
+  }
+</style>
+</head>
+<body>
+<div id="mainContainer">
+<h1 style="font-size: 2.5rem; margin-top: 0px;margin-bottom: 9px;"><b>MineSweeper Game </b><span><i class="fa-solid fa-bomb"></i></span></h1>
+<div style="font-size: 2rem; margin-top: 5px; margin-bottom: 10px;">
+    <b>Click To Open Title and Right Click To Flag</b>
+</div>
+<div id="board" style="height:auto; width: 500px; border:15px solid rgb(214, 209, 209);"></div>
+<div style="font-size: 1.5rem; margin: 10px;"><b>Flags Left: <span id="mineFlag">20</span></b></div>
+</div>
+<script src="script.js"></script>
+<script>
+  // Select the board div
+  
+</script>
+
+</body>
+</html>
