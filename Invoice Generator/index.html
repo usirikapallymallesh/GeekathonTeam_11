@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>invoice generato</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+</head>
+<body>
+    
+    <div class="main">
+        
+        <div class="left-div">
+        <form action=""><span>
+            Current Date:
+        </span>
+         <span>2/9/2024</span>
+         <div class="invoice">
+            <span>Invoice Number: </span>
+            <input type="number" value="1" min="1" id="invoice-number">
+        </div>
+        <span>Due Date:</span>
+        <input type="date" id="due-date" required>
+        <hr>
+        <div class="bill">
+        <div class="bill-to">
+            <span>Bill to:</span>
+            <input type="text" placeholder="Who is this invoice to?" id="invoice-to" required>
+            <input type="email" placeholder="Email address" id="email-address-to"required>
+            <input type="text" placeholder="Billing address" id="address-to"required>
+
+        </div>
+        <div class="bill-from">
+            <span>Bill from:</span>
+            <input type="text" placeholder="Who is this invoice from?" id="invoice-from" required>
+            <input type="email" placeholder="Email address" id="email-address-from" required>
+            <input type="text" placeholder="Billing address" id="address-from" required>
+
+        </div>
+    </div>
+    <hr>
+                <table class="item-list" id="item-list">
+                    
+                    <tr class="item-list-hader">
+                        <td>ITEM</td>
+                        <td>QTY</td>
+                        <td>PRICE/RATE</td>
+                        <td>ACTION</td>
+                    </tr>
+                    
+                    <tr class="tr">
+                        <td class="item-name-description">
+                            <input type="text" placeholder="Item name" class="item-name" required>
+                            <input type="text" placeholder="Item description"  class="item-description" required>
+                        </td>
+                        <td>
+                            <input type="number" value="1" min="1" class="qty" >
+                        </td>
+                        <td>
+                            <img src="" alt="">
+                            <input type="number" value="1.00" min="1.00"  class="price">
+                        </td>
+                        <td >
+                            <button class="btn2" ><span class="material-symbols-outlined">
+                                delete
+                                </span></button>
+                        </td>
+                    </tr>
+                    
+                    
+                    
+                    
+                </table>
+                <hr>
+                <button class="add-btn" id="add-btn">ADD ITEM</button>
+                
+                <div class="total">
+                    <div class="clculation">
+                        <h4>Subtotal:</h4>
+                        <p id="subtotal-value">$1.00</p>
+                    </div>
+                    <div class="clculation">
+                        <h4>Discount:</h4>
+                        <p id="discount-value">(0%)$0.00</p>
+                    </div>
+                    <div class="clculation">
+                        <h4>Tax:</h4>
+                        <p id="tax-value">(0%)$0.00</p>
+                    </div>
+                    
+                    <div class="clculation">
+                        <h4>Total:</h4>
+                        <p id="total-value">$1</p>
+                    </div>
+                    
+
+                </div>
+                <div class="notes">
+                    <span>Notes:</span>
+                        <textarea name="" id="" cols="130" rows="2 " placeholder="Thanks for your Business!" id="note"></textarea>
+                </div>
+
+
+            
+            
+        </form>
+    </div>
+    <div class="right-div">
+        <div class="right">
+            <button  class="review-button" id="review-button">Review Invoice</button>
+            <hr>
+            <span>Currency:</span>
+            <select class="currency-option">
+                <option value="$">USD (United States Dollar)</option>
+                <option value="£">GBP (British Pound Sterling)</option>
+                <option value="¥">JPY (Japanese Yen)</option>
+                <option value="$">CAD (Canadian Dollar)</option>
+                <option value="$">AUD (Australian Dollar)</option>
+                <option value="$">SGD (Signapore Dollar)</option>
+                <option value="¥">CNY (Chinese Renminbi)</option>
+                <option value="₿">BTC (Bitcoin)</option>
+              </select>
+
+              <span>Tax rate:</span>
+              <input type="number" placeholder="0.0" class="text-rate" id="text-rate">
+              <span>Discount rate:</span>
+              <input type="number" placeholder="0.0" class="discount-rate" id="discount-rate">
+        </div>
+    
+
+
+    </div>
+    </div>
+
+    </div>
+    <div class="bivlast">
+    <div id="clike-div">
+
+    </div>
+    <div>
+        <button id="download">Download</button>
+    </div>
+</div> 
+
+    <script src="script.js"></script>
+    
+</body>
+</html>

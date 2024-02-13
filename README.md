@@ -15,7 +15,7 @@ Welcome to the project repository! This repository contains six distinct project
 ### 3. 💵 Invoice Generator
 
 - **Description:** Simplify your invoicing process with this versatile tool, ideal for freelancers and small businesses. Effortlessly create and download customized invoices, ensuring a professional presentation of your financial transactions. By automating and centralizing your invoicing process, you can save time, reduce costs, and improve cash flow management.
-- **Hosted Link:** [Link for Invoice Generator]()
+- **Hosted Link:** [Link for Invoice Generator](https://karan17102003.github.io/Invoice-Generator/)
 
 ### 4. 💳 Payment Integration
 
